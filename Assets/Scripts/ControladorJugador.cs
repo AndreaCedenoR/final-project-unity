@@ -5,7 +5,7 @@ public class ControladorJugador : MonoBehaviour
     // Variables que podemos ajustar desde el Inspector de Unity
     public float velocidadMovimiento = 7f;
     public float fuerzaSalto = 5f;
-
+    public bool controlesInvertidos = false;
     // Componentes del jugador
     private Rigidbody2D rb;
 
@@ -23,17 +23,28 @@ public class ControladorJugador : MonoBehaviour
     void Update()
     {
         // --- MOVIMIENTO HORIZONTAL ---
-        // Obtenemos la entrada del teclado (-1 para izquierda, 1 para derecha)
         float movimientoHorizontal = Input.GetAxis("Horizontal");
 
-        // Aplicamos la velocidad al Rigidbody para mover al personaje
-        rb.linearVelocity = new Vector2(movimientoHorizontal * velocidadMovimiento, rb.linearVelocity.y);
+        // --- LÓGICA DE CONTROLES INVERTIDOS (ACTUALIZADA) ---
+        if (controlesInvertidos)
+        {
+            // Si los controles están invertidos, multiplicamos la entrada por -1
+            // USAMOS linearVelocity en lugar de velocity
+            rb.linearVelocity = new Vector2(movimientoHorizontal * -1 * velocidadMovimiento, rb.linearVelocity.y);
+        }
+        else
+        {
+            // Si no, todo funciona como siempre
+            // USAMOS linearVelocity en lugar de velocity
+            rb.linearVelocity = new Vector2(movimientoHorizontal * velocidadMovimiento, rb.linearVelocity.y);
+        }
 
-        // --- SALTO ---
-        // Comprobamos si se presion� la barra espaciadora Y si el jugador est� en el suelo
+        // --- SALTO (ACTUALIZADO) ---
+        // Comprobamos si se presionó la barra espaciadora Y si el jugador está en el suelo
         if (Input.GetButtonDown("Jump") && estaEnElSuelo)
         {
             // Aplicamos una fuerza vertical para que salte
+            // USAMOS linearVelocity en lugar de velocity
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
         }
     }
@@ -41,18 +52,17 @@ public class ControladorJugador : MonoBehaviour
     // Esta funci�n se llama cuando el collider del jugador EMPIEZA a tocar otro collider
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Comprobamos si el objeto con el que chocamos tiene la etiqueta "Piso"
-        if (collision.gameObject.CompareTag("Piso"))
+        // Comprobamos si el objeto con el que chocamos tiene la etiqueta "Piso" O "Restauradora"
+        if (collision.gameObject.CompareTag("Piso") || collision.gameObject.CompareTag("Restauradora"))
         {
             estaEnElSuelo = true;
         }
     }
 
-    // Esta funci�n se llama cuando el collider del jugador DEJA de tocar otro collider
     private void OnCollisionExit2D(Collision2D collision)
     {
-        // Comprobamos si dejamos de tocar el objeto con la etiqueta "Piso"
-        if (collision.gameObject.CompareTag("Piso"))
+        // Hacemos lo mismo al salir de la colisión
+        if (collision.gameObject.CompareTag("Piso") || collision.gameObject.CompareTag("Restauradora"))
         {
             estaEnElSuelo = false;
         }

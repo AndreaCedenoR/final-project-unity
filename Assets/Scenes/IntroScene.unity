@@ -377,7 +377,7 @@ MonoBehaviour:
     de un poder tan absoluto y pensando que se trata de un simple juego de feria,
     Romel acepta el desaf\xEDo, sin saber que su decisi\xF3n est\xE1 a punto de desatar
     una pesadilla...\r\n"
-  typingSpeed: 0.06
+  typingSpeed: 0.02
   nextSceneName: Level1
 --- !u!4 &71528198
 Transform:
