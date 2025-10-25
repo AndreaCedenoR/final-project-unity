@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class ControladorJugador : MonoBehaviour
 {
     // Variables que podemos ajustar desde el Inspector de Unity
-    public float velocidadMovimiento = 7f;
+    public float velocidadMovimiento = 5f;
     public float fuerzaSalto = 5f;
     public bool controlesInvertidos = false;
     // Componentes del jugador
@@ -11,6 +12,7 @@ public class ControladorJugador : MonoBehaviour
 
     // Variables para controlar el estado
     private bool estaEnElSuelo = false;
+    public Animator animator; 
 
     // Start se llama antes del primer frame
     void Start()
@@ -23,7 +25,11 @@ public class ControladorJugador : MonoBehaviour
     void Update()
     {
         // --- MOVIMIENTO HORIZONTAL ---
-        float movimientoHorizontal = Input.GetAxis("Horizontal");
+        float movimientoHorizontal = Input.GetAxisRaw("Horizontal");
+
+        animator.SetFloat("speed", movimientoHorizontal* velocidadMovimiento);
+
+        checkDirection(movimientoHorizontal, controlesInvertidos);
 
         // --- LÓGICA DE CONTROLES INVERTIDOS (ACTUALIZADA) ---
         if (controlesInvertidos)
@@ -46,6 +52,31 @@ public class ControladorJugador : MonoBehaviour
             // Aplicamos una fuerza vertical para que salte
             // USAMOS linearVelocity en lugar de velocity
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
+        }
+    }
+
+    private void checkDirection(float movimientoHorizontal, bool controlesInvertidos)
+    {
+        if (movimientoHorizontal > 0)
+        {
+            if (!controlesInvertidos)
+            {
+                transform.localScale = new Vector3(1, 1, 1); // Mirando a la derecha
+            }else
+            {
+                transform.localScale = new Vector3(-1, 1, 1); // Mirando a la izquierda
+            }        
+        }
+        else if (movimientoHorizontal < 0)
+        {
+            if (!controlesInvertidos)
+            {
+                transform.localScale = new Vector3(-1, 1, 1); // Mirando a la derecha
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1); // Mirando a la izquierda
+            }
         }
     }
 
