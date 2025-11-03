@@ -80,13 +80,20 @@ public class ControladorJugador : MonoBehaviour
         }
     }
 
-    // Esta funci�n se llama cuando el collider del jugador EMPIEZA a tocar otro collider
+    // Esta función se llama cuando el collider del jugador EMPIEZA a tocar otro collider
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Comprobamos si el objeto con el que chocamos tiene la etiqueta "Piso" O "Restauradora"
+        // Primero, verificamos si el objeto tiene la etiqueta correcta
         if (collision.gameObject.CompareTag("Piso") || collision.gameObject.CompareTag("Restauradora"))
         {
-            estaEnElSuelo = true;
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                if (contact.normal.y > 0.5f)
+                {
+                    estaEnElSuelo = true;
+                    break;
+                }
+            }
         }
     }
 
