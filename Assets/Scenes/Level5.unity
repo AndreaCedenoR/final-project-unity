@@ -1258,6 +1258,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1191307356}
   - component: {fileID: 1191307355}
+  - component: {fileID: 1191307358}
+  - component: {fileID: 1191307357}
   m_Layer: 0
   m_Name: Trampolin
   m_TagString: Untagged
@@ -1332,12 +1334,79 @@ Transform:
   m_GameObject: {fileID: 1191307354}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.79537463, z: 0}
-  m_LocalScale: {x: 1.54691, y: 0.18564469, z: 1.54691}
+  m_LocalPosition: {x: 263.9, y: -0.76, z: 0}
+  m_LocalScale: {x: 1.07, y: 0.12001, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1756378680}
+  m_Children:
+  - {fileID: 1756378680}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1191307357
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191307354}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1191307358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191307354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757515289d0994e4d9b590bfe05357da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControladorTrampolin
+  trampolinEstatico: {fileID: 1012532624}
+  fuerzaRebote: 11
+  puntoA: {fileID: 962350217}
+  puntoDePausa: {fileID: 461970270}
+  puntoDeRegreso: {fileID: 1058606942}
+  puntoB: {fileID: 1531975275}
+  velocidadMovimiento: 2
+  tiempoAparicion: 1
 --- !u!1 &1531975274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,13 +1523,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756378678}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 263.9, y: -1.2741699, z: 0}
-  m_LocalScale: {x: 0.64645, y: 0.64645, z: 0.64645}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.2843924, z: 0}
+  m_LocalScale: {x: 0.64645, y: 5.3866343, z: 0.64645}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1191307356}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 1191307356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1756378681
 BoxCollider2D:
@@ -1539,7 +1607,7 @@ SceneRoots:
   - {fileID: 1143882013}
   - {fileID: 3980335}
   - {fileID: 1138469076}
-  - {fileID: 1756378680}
+  - {fileID: 1191307356}
   - {fileID: 1012532627}
   - {fileID: 962350217}
   - {fileID: 1531975275}
