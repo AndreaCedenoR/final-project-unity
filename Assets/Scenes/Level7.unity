@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a27396e4390d0a47861572340a78e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardDamage
+  deathSound: {fileID: 0}
+  delayBeforeReload: 3
 --- !u!60 &21753790
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -792,7 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6662ff70814432349b09cb3515a1b2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControladorPuerta
-  nombreDelSiguienteNivel: Level2
+  nombreDelSiguienteNivel: Level8
 --- !u!61 &439617965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1284,6 +1286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a27396e4390d0a47861572340a78e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardDamage
+  deathSound: {fileID: 0}
+  delayBeforeReload: 3
 --- !u!60 &732271494
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1417,7 +1421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836394392}
   - component: {fileID: 836394391}
-  - component: {fileID: 836394390}
+  - component: {fileID: 836394393}
   m_Layer: 0
   m_Name: ZonaDeMuerte
   m_TagString: Untagged
@@ -1425,18 +1429,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &836394390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836394389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ae08ba0a20a064c8085709a906ef2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!61 &836394391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1498,6 +1490,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836394393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836394389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a27396e4390d0a47861572340a78e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HazardDamage
+  deathSound: {fileID: 8300000, guid: 13ce750f942a05244933bc49c739fbb1, type: 3}
+  delayBeforeReload: 3
 --- !u!1 &1012092381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a27396e4390d0a47861572340a78e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardDamage
+  deathSound: {fileID: 0}
+  delayBeforeReload: 3
 --- !u!60 &1251086513
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2047,6 +2055,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a27396e4390d0a47861572340a78e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardDamage
+  deathSound: {fileID: 0}
+  delayBeforeReload: 3
 --- !u!60 &1302239584
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2714,6 +2724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a27396e4390d0a47861572340a78e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardDamage
+  deathSound: {fileID: 0}
+  delayBeforeReload: 3
 --- !u!60 &1717012962
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2868,6 +2880,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a27396e4390d0a47861572340a78e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardDamage
+  deathSound: {fileID: 0}
+  delayBeforeReload: 3
 --- !u!60 &1734542226
 PolygonCollider2D:
   m_ObjectHideFlags: 0

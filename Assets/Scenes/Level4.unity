@@ -251,9 +251,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 176693797}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ae08ba0a20a064c8085709a906ef2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a27396e4390d0a47861572340a78e71, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::HazardDamage
+  deathSound: {fileID: 8300000, guid: 13ce750f942a05244933bc49c739fbb1, type: 3}
+  delayBeforeReload: 3
 --- !u!1 &492320126
 GameObject:
   m_ObjectHideFlags: 0

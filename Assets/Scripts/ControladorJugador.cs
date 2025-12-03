@@ -7,6 +7,7 @@ public class ControladorJugador : MonoBehaviour
     public float velocidadMovimiento = 5f;
     public float fuerzaSalto = 5f;
     public bool controlesInvertidos = false;
+    public AudioClip reviveSound;
     // Componentes del jugador
     private Rigidbody2D rb;
 
@@ -19,6 +20,10 @@ public class ControladorJugador : MonoBehaviour
     {
         // Obtenemos el componente Rigidbody2D para poder usarlo
         rb = GetComponent<Rigidbody2D>();
+        if (reviveSound != null)
+        {
+            AudioManager.instance.PlaySound(reviveSound);
+        }
     }
 
     // Update se llama una vez por frame
