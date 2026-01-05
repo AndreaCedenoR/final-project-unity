@@ -28,15 +28,30 @@ public class HazardDamage : MonoBehaviour
 
     private IEnumerator DeathSequence(GameObject player)
     {
-        playerIsDead = true; 
+        playerIsDead = true;
 
+        // Desactivamos el control del jugador para que no se pueda mover
         player.GetComponent<ControladorJugador>().enabled = false;
 
-        if (deathSound != null)
+        // --- CÓDIGO CORREGIDO Y MÁS SEGURO ---
+
+        // Primero, comprobamos si el AudioManager existe en la escena
+        if (AudioManager.instance != null)
         {
-            AudioManager.instance.PlaySound(deathSound);
+            // Si existe, ahora comprobamos si tenemos un sonido de muerte asignado
+            if (deathSound != null)
+            {
+                // Y solo si ambas cosas son verdad, reproducimos el sonido
+                AudioManager.instance.PlaySound(deathSound);
+            }
+        }
+        else
+        {
+            // Esto es opcional, pero te ayuda a saber por qué no sonó nada cuando pruebas un nivel solo
+            Debug.LogWarning("AudioManager no encontrado. No se reproducirá sonido de muerte.");
         }
 
+        // El resto del código continúa ejecutándose sin importar si hubo sonido o no
         yield return new WaitForSeconds(delayBeforeReload);
 
         string escenaActual = SceneManager.GetActiveScene().name;
