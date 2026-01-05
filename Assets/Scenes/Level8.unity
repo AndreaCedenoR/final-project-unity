@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6662ff70814432349b09cb3515a1b2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControladorPuerta
-  nombreDelSiguienteNivel: Level2
+  nombreDelSiguienteNivel: Level10
 --- !u!61 &1448724660
 BoxCollider2D:
   m_ObjectHideFlags: 0
